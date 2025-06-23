@@ -10,16 +10,20 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "db:migrate": "prisma migrate dev",
     "db:generate": "prisma generate",
     "db:seed": "prisma db seed"
   },
   "dependencies": {
     "@prisma/client": "^6.10.1",
     "@types/bcrypt": "^5.0.2",
+    "@types/jsonwebtoken": "^9.0.10",
     "bcrypt": "^6.0.0",
+    "jsonwebtoken": "^9.0.2",
     "next": "15.3.4",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "server-only": "^0.0.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
