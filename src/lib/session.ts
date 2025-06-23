@@ -3,6 +3,7 @@ import 'server-only';
 import jwt from "jsonwebtoken";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
+import { cache } from 'react';
 
 const JWT_SECRET = process.env.JWT_SECRET as string || 'secret';
 
@@ -47,7 +48,7 @@ export async function createSession(userId: string, email: string) {
   redirect('/dashboard');
 }
 
-export async function verifySession() {
+export const verifySession = cache(async () => {
   const cookieStore = await cookies();
   const session = cookieStore.get(cookieInfo.name);
 
@@ -62,7 +63,7 @@ export async function verifySession() {
   }
 
   return decoded;
-}
+})
 
 export async function deleteSession() {
   (await cookies()).delete(cookieInfo.name);

@@ -1,6 +1,6 @@
 import { signin } from "@/datalayer/auth";
 
-export default function LoginPage() {
+export default async function LoginPage() {
   return (
     <form action={signin} className="flex flex-col gap-4 p-8 border border-zinc-900 max-w-lg m-auto mt-10">
       <div className="flex flex-col gap-3">
